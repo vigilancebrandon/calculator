@@ -1,3 +1,8 @@
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: medium;
+}
+
 body {
   display: flex;
   height: 100vh;
@@ -21,6 +26,7 @@ div {
   height: 1.6em;
   background-color: grey;
   flex-grow: 0.2;
+  margin-bottom: 0.4em;
 }
 
 #main-buttons {
@@ -34,19 +40,20 @@ div {
 }
 
 #main-buttons {
-  flex-grow: 3;
   flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
 }
 
 #operation-buttons {
   flex-direction: column;
-  flex-grow: 1;
+  width: 25%;
 }
 
 #main-buttons > * {
-
+  min-width: 33%;
 }
 
 #operation-buttons > * {
-  
+  height: 25%;
 }
