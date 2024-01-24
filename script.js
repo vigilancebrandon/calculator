@@ -8,10 +8,11 @@ const mainBtns = document.querySelector('#main-btns');
 const display = document.querySelector('#display');
 const clearBtn = mainBtns.querySelector('#clear-btn');
 const equalsBtn = mainBtns.querySelector('#equals-btn');
-const addBtn = document.querySelector('#add');
-const subtractBtn = document.querySelector('#subtract');
-const multiplyBtn = document.querySelector('#multiply');
-const divideBtn = document.querySelector('#divided');
+const operatorBtns = document.querySelector('#operator-btns')
+const addBtn = operatorBtns.querySelector('#add');
+const subtractBtn = operatorBtns.querySelector('#subtract');
+const multiplyBtn = operatorBtns.querySelector('#multiply');
+const divideBtn = operatorBtns.querySelector('#divided');
 
 function add(a, b) {
   return a + b;
@@ -53,4 +54,3 @@ function clearDisplay() {
 
 mainBtns.addEventListener('click', event => event.target.className === 'number' ? displayNumber(event) : null);
 clearBtn.addEventListener('click', clearDisplay);
-plusBtn
