@@ -1,9 +1,7 @@
 let a = '';
 let b = '';
 let operator = '';
-let result = 0
 let displayVal = '';
-let i = 0
 
 const allBtns = document.querySelector('#all-btns');
 const mainBtns = document.querySelector('#main-btns');
@@ -55,6 +53,13 @@ function clearDisplay() {
   display.textContent = '';
 };
 
+function initialize() {
+  a = '';
+  b = '';
+  operator = '';
+  displayVal = '';
+}
+
 mainBtns.addEventListener('click', event => {
   event.target.className === 'number' 
   ? updateDisplay(event.target.textContent) 
@@ -62,64 +67,26 @@ mainBtns.addEventListener('click', event => {
 });
 
 operatorBtns.addEventListener('click', (event) => {
-  if (b === '') {
+  if (a === '') {
     a = +displayVal;
     operator = event.target.textContent;
     clearDisplay();
-  } /* //NOT WORKING. STUCK ON STRING OPERATORS
-    else {
-    a = operate(a, b, operator);
+  } else {
     b = +displayVal;
+    a = operate(a, b, operator);
     operator = event.target.textContent;
     clearDisplay();
   }
-  */
 });
 
 equalsBtn.addEventListener('click', () => {
   b = +displayVal;
-  a = operate(a, b, operator);
-  b = '';
+  let result = operate(a, b, operator);
   clearDisplay();
-  updateDisplay(a);
+  updateDisplay(result);
 });
 
 clearBtn.addEventListener('click', () => {
   clearDisplay();
-  a = '';
-  b = '';
-  result = 0;
-  operator = '';
-  displayVal = '';
+  initialize();
 });
-
-//type 9
-  //display 9
-//type plus
-  //a = 9
-  //operator = plus
-  //b = ''
-  //clear display
-//type 3
-  //display 3
-//type equals
-  //b = 3
-  //result = calculate (a operator b) (9 + 3)
-  //clear display
-  //display result
-
-//type 9
-  //display 9
-//type plus
-  //a = 9
-  //operator = plus
-  //b = ''
-  //clear display
-//type 3
-  //display 3
-//type plus
-  //b = 3
-  //result = calculate (a operator b) (9 + 3)
-  //clear display
-  //display result
-  //a = display
