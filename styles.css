@@ -1,6 +1,6 @@
 * {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: large;
 }
 
 body {
@@ -14,11 +14,30 @@ div {
   display: flex;
 }
 
+p {
+  color: white;
+  text-align: center;
+  padding: 0em;
+}
+
+button {
+  font-weight: 800;
+  border-radius: 2px;
+  border: none;
+}
+
+button:active {
+  background-color: red;
+}
+
 #calculator {
   flex-direction: column;
   justify-content: center;
   /*width: 60%;*/
   height: 60%;
+  background-color: black;
+  padding: 1em 1em;
+  border-radius: 10px;
 }
 
 #display {
@@ -27,33 +46,59 @@ div {
   background-color: grey;
   flex-grow: 0.2;
   margin-bottom: 0.4em;
+  justify-content: left;
+  align-items: center;
+  
+  font-size: 3em;
+  font-style: italic; 
+  color: gold;
+
+  border-radius: 6px;
+}
+
+#all-btns {
+  flex-grow: 1;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 #main-btns {
   flex-wrap: wrap;
   width: 75%;
-}
-
-#all-btns {
-  flex-grow: 1;
-  flex-direction: row;
-}
-
-#main-btns {
-  flex-wrap: wrap;
   flex-direction: row-reverse;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+#main-btns > * {
+  min-width: 25%;
+  min-height: 15%;
+}
+
+#main-btns
+.number {
+  flex-grow: 1;
+  background-color: ghostwhite;
+}
+
+#clear-btn,
+#equals-btn {
+  flex-grow: 0.7;
+  background-color: aquamarine;
 }
 
 #operator-btns {
   flex-direction: column;
   width: 25%;
-}
-
-#main-btns > * {
-  min-width: 33%;
+  gap: 4px;
 }
 
 #operator-btns > * {
   height: 25%;
+  background-color: rgb(200, 100, 200);
+}
+
+
+#add {
+  height: 50%;
 }

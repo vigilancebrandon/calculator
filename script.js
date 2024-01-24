@@ -89,3 +89,5 @@ clearBtn.addEventListener('click', () => {
   clearDisplay();
   initialize();
 });
+
+//allBtns.addEventListener('mousedown', (event) => event.target.style.backgroundColor = 'red');
