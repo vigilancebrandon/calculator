@@ -1,0 +1,12 @@
+<button id="one-btn">1</button>
+          <button id="two-btn">2</button>
+          <button id="three-btn">3</button>
+          <button id="four-btn">4</button>
+          <button id="five-btn">5</button>
+          <button id="six-btn">6</button>
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <button>0</button>
+          <button>Clear</button>
+          <button>=</button>

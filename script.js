@@ -31,7 +31,6 @@ function divide(a, b) {
 };
 
 function operate(a, b, operator) {
-  console.log(a, operator, b);
   switch (operator) {
     case '+':
       return add(a, b);
@@ -39,7 +38,7 @@ function operate(a, b, operator) {
       return subtract(a, b);
     case '*':
       return multiply(a, b);
-    case '/':
+    case '%':
       return divide(a, b);
   }
 };
@@ -68,11 +67,11 @@ mainBtns.addEventListener('click', event => {
 
 operatorBtns.addEventListener('click', (event) => {
   if (a === '') {
-    a = +displayVal;
+    a = parseFloat(displayVal);
     operator = event.target.textContent;
     clearDisplay();
   } else {
-    b = +displayVal;
+    b = parseFloat(displayVal);
     a = operate(a, b, operator);
     operator = event.target.textContent;
     clearDisplay();
@@ -80,7 +79,7 @@ operatorBtns.addEventListener('click', (event) => {
 });
 
 equalsBtn.addEventListener('click', () => {
-  b = +displayVal;
+  b = parseFloat(displayVal);
   let result = operate(a, b, operator);
   clearDisplay();
   updateDisplay(result);
