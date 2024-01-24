@@ -6,8 +6,12 @@ let displayVal = ''
 const allBtns = document.querySelector('#all-btns');
 const mainBtns = document.querySelector('#main-btns');
 const display = document.querySelector('#display');
-
-//const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+const clearBtn = mainBtns.querySelector('#clear-btn');
+const equalsBtn = mainBtns.querySelector('#equals-btn');
+const addBtn = document.querySelector('#add');
+const subtractBtn = document.querySelector('#subtract');
+const multiplyBtn = document.querySelector('#multiply');
+const divideBtn = document.querySelector('#divided');
 
 function add(a, b) {
   return a + b;
@@ -38,10 +42,15 @@ function operate(a, b, operator) {
   }
 }
 
-function updateDisplay(event) {
-  if (event.target.className === 'number') {
-    display.textContent += event.target.textContent;
-  }
+function displayNumber(event) {
+  display.textContent += event.target.textContent;
+  displayVal = display.textContent
 }
 
-mainBtns.addEventListener('click', updateDisplay);
+function clearDisplay() {
+  display.textContent = '';
+}
+
+mainBtns.addEventListener('click', event => event.target.className === 'number' ? displayNumber(event) : null);
+clearBtn.addEventListener('click', clearDisplay);
+plusBtn
