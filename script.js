@@ -3,8 +3,11 @@ let b = ''
 let operator = ''
 let displayVal = ''
 
-const allButtons = document.querySelector('#all-buttons');
-const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+const allBtns = document.querySelector('#all-btns');
+const mainBtns = document.querySelector('#main-btns');
+const display = document.querySelector('#display');
+
+//const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
 
 function add(a, b) {
   return a + b;
@@ -35,8 +38,10 @@ function operate(a, b, operator) {
   }
 }
 
-function displayNumber(event) {
-  
+function updateDisplay(event) {
+  if (event.target.className === 'number') {
+    display.textContent += event.target.textContent;
+  }
 }
 
-mainContainer.addEventListener('click', displayNumber(event));
+mainBtns.addEventListener('click', updateDisplay);

@@ -29,31 +29,31 @@ div {
   margin-bottom: 0.4em;
 }
 
-#main-buttons {
+#main-btns {
   flex-wrap: wrap;
   width: 75%;
 }
 
-#all-buttons {
+#all-btns {
   flex-grow: 1;
   flex-direction: row;
 }
 
-#main-buttons {
+#main-btns {
   flex-wrap: wrap;
   flex-direction: row-reverse;
   justify-content: space-evenly;
 }
 
-#operation-buttons {
+#operation-btns {
   flex-direction: column;
   width: 25%;
 }
 
-#main-buttons > * {
+#main-btns > * {
   min-width: 33%;
 }
 
-#operation-buttons > * {
+#operation-btns > * {
   height: 25%;
 }
