@@ -77,15 +77,16 @@ button:active {
 
 #main-btns
 .number {
-  flex-grow: 1;
+  flex-grow: 3;
   background-color: ghostwhite;
 }
 
-#clear-btn,
-#equals-btn {
-  flex-grow: 0.7;
+#clear-btn {
+  flex-grow: 5;
   background-color: aquamarine;
 }
+
+
 
 #operator-btns {
   flex-direction: column;
@@ -99,6 +100,6 @@ button:active {
 }
 
 
-#add {
+#equals-btn {
   height: 50%;
 }
