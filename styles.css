@@ -73,20 +73,20 @@ button:active {
 #main-btns > * {
   min-width: 25%;
   min-height: 15%;
+  flex-grow: 1;
 }
 
 #main-btns
 .number {
-  flex-grow: 3;
   background-color: ghostwhite;
 }
 
-#clear-btn {
-  flex-grow: 5;
+#clear-btn,
+#equals-btn {
+  width: auto;
   background-color: aquamarine;
+  flex-grow: 0;
 }
-
-
 
 #operator-btns {
   flex-direction: column;
@@ -97,9 +97,4 @@ button:active {
 #operator-btns > * {
   height: 25%;
   background-color: rgb(200, 100, 200);
-}
-
-
-#equals-btn {
-  height: 50%;
 }

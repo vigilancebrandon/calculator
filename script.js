@@ -6,13 +6,13 @@ let displayVal = '';
 const allBtns = document.querySelector('#all-btns');
 const mainBtns = document.querySelector('#main-btns');
 const display = document.querySelector('#display');
-const clearBtn = mainBtns.querySelector('#clear-btn');
-const equalsBtn = mainBtns.querySelector('#equals-btn');
+const clearBtn = document.querySelector('#clear-btn');
+const equalsBtn = document.querySelector('#equals-btn');
 const operatorBtns = document.querySelector('#operator-btns')
-const addBtn = operatorBtns.querySelector('#add');
-const subtractBtn = operatorBtns.querySelector('#subtract');
-const multiplyBtn = operatorBtns.querySelector('#multiply');
-const divideBtn = operatorBtns.querySelector('#divided');
+const addBtn = document.querySelector('#add');
+const subtractBtn = document.querySelector('#subtract');
+const multiplyBtn = document.querySelector('#multiply');
+const divideBtn = document.querySelector('#divided');
 
 function add(a, b) {
   return a + b;
@@ -44,8 +44,8 @@ function operate(a, b, operator) {
 };
 
 function updateDisplay(value) {
-  display.textContent += value;
-  displayVal = display.textContent
+  display.textContent += String(value);
+  displayVal = display.textContent;
 };
 
 function clearDisplay() {
