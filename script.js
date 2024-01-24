@@ -1,7 +1,7 @@
-let a = ''
-let b = ''
-let operator = ''
-let displayVal = ''
+let a = '';
+let b = '';
+let operator = '';
+let displayVal = '';
 
 const allBtns = document.querySelector('#all-btns');
 const mainBtns = document.querySelector('#main-btns');
@@ -16,19 +16,19 @@ const divideBtn = operatorBtns.querySelector('#divided');
 
 function add(a, b) {
   return a + b;
-}
+};
 
 function subtract(a, b) {
   return a - b;
-}
+};
 
 function multiply(a, b) {
   return a * b;
-}
+};
 
 function divide(a, b) {
   return a / b;
-}
+};
 
 function operate(a, b, operator) {
   switch (operator) {
@@ -41,16 +41,35 @@ function operate(a, b, operator) {
     case '/':
       return divide(a, b);
   }
-}
+};
 
-function displayNumber(event) {
-  display.textContent += event.target.textContent;
+function updateDisplay(value) {
+  display.textContent += value;
   displayVal = display.textContent
-}
+};
 
 function clearDisplay() {
   display.textContent = '';
-}
+};
 
-mainBtns.addEventListener('click', event => event.target.className === 'number' ? displayNumber(event) : null);
-clearBtn.addEventListener('click', clearDisplay);
+mainBtns.addEventListener('click', event => event.target.className === 'number' ? updateDisplay(event.target.textContent) : null);
+clearBtn.addEventListener('click', () => {
+  clearDisplay();
+  a = '';
+  b = '';
+  operator = '';
+  displayVal = '';
+});
+operatorBtns.addEventListener('click', (event) => {
+  a = +displayVal;
+  operator = event.target.textContent;
+  updateDisplay(operate(a, b, operator));
+  clearDisplay();
+});
+
+equalsBtn.addEventListener('click', (event) => {
+  b = +displayVal;
+  let result = operate(a, b, operator);
+  clearDisplay();
+  updateDisplay(result);
+});
