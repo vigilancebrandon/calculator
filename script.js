@@ -2,6 +2,7 @@ let a = '';
 let b = '';
 let operator = '';
 let storedVal = '';
+let result = ''
 
 const allBtns = document.querySelector('#all-btns');
 const numBtns = document.querySelector('#num-btns');
@@ -74,13 +75,13 @@ numBtns.addEventListener('click', event => {
 
 operatorBtns.addEventListener('click', (event) => {
   storedVal = display.textContent;
-  clearDisplay();
   if (a === '') {
     a = parseFloat(storedVal);
     operator = event.target.textContent;
+    clearDisplay();
   } else {
     b = parseFloat(storedVal);
-    let result = operate(a, b, operator);
+    result = operate(a, b, operator);
     updateDisplay(result);
     operator = event.target.textContent;
     a = '';
@@ -104,3 +105,30 @@ along with the next operator (-).
 */
 
 //allBtns.addEventListener('mousedown', (event) => event.target.style.backgroundColor = 'red');
+
+//type 12
+//type +
+  //since a is empty
+    //store 12 as a
+    //store + as operator
+    //clear display
+//type 7
+  //since a is full
+    //store 7 as b
+    //store a + b (12 + 7) (19) as result
+    //clear display
+    //display result
+    //store a as empty
+    //store b as empty
+//type - 
+  //since a is empty
+    //store 19 as a
+    //clear display
+//type 5
+  //since a is full
+    //store 5 as b
+    //store a + b (19 - 5) (14) as result
+    //clear display
+    //display result
+    //store a as empty
+    //store b as empty
