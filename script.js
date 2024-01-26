@@ -43,21 +43,23 @@ function operate(a, b, operator) {
   }
 };
 
-function updateDisplay(value) {
-  display.textContent += String(value);
-  storedVal = display.textContent;
-};
-
-function clearDisplay() {
-  display.textContent = '';
-};
-
 function initialize() {
   a = '';
   b = '';
   operator = '';
   storedVal = '';
 }
+
+function clearDisplay() {
+  display.textContent = '';
+};
+
+function updateDisplay(value) {
+  if (b !== '') {
+    clearDisplay();
+  }
+  display.textContent += value;
+};
 
 clearBtn.addEventListener('click', () => {
   clearDisplay();
@@ -66,31 +68,39 @@ clearBtn.addEventListener('click', () => {
 
 numBtns.addEventListener('click', event => {
   if (event.target.className === 'number') {
-    display.textContent += event.target.textContent;
-    storedVal = display.textContent;
-  }
+    updateDisplay(event.target.textContent);
+  };
 });
 
 operatorBtns.addEventListener('click', (event) => {
+  storedVal = display.textContent;
+  clearDisplay();
   if (a === '') {
     a = parseFloat(storedVal);
     operator = event.target.textContent;
-    clearDisplay();
   } else {
     b = parseFloat(storedVal);
-    a = operate(a, b, operator);
+    let result = operate(a, b, operator);
+    updateDisplay(result);
     operator = event.target.textContent;
-    clearDisplay();
+    a = '';
   }
 });
 
-equalsBtn.addEventListener('click', () => {
-  console.log('click');
-  b = parseFloat(storedVal);
-  const result = operate(a, b, operator);
-  clearDisplay();
-  updateDisplay(result);
-  initialize();
-});
+
+/*
+
+you press a number button (12), followed by an operator button (+), 
+a second number button (7), and finally a second operator button (-). 
+Your calculator should then do the following:
+
+first, evaluate the first pair of numbers (12 + 7), 
+
+second, display the result of that calculation (19), 
+
+and finally, use that result (19) as the first number in your new calculation, 
+along with the next operator (-).
+
+*/
 
 //allBtns.addEventListener('mousedown', (event) => event.target.style.backgroundColor = 'red');
