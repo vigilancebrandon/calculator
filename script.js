@@ -64,10 +64,10 @@ clearBtn.addEventListener('click', () => {
   initialize();
 });
 
-mainBtns.addEventListener('click', event => {
-  let num = event.target.textContent;
-  if (numBtns.includes(event.target)) {
-
+numBtns.addEventListener('click', event => {
+  if (event.target.className === 'number') {
+    display.textContent += event.target.textContent;
+    storedVal = display.textContent;
   }
 });
 
@@ -75,17 +75,22 @@ operatorBtns.addEventListener('click', (event) => {
   if (a === '') {
     a = parseFloat(storedVal);
     operator = event.target.textContent;
+    clearDisplay();
   } else {
-
+    b = parseFloat(storedVal);
+    a = operate(a, b, operator);
+    operator = event.target.textContent;
+    clearDisplay();
   }
 });
 
 equalsBtn.addEventListener('click', () => {
-  
+  console.log('click');
+  b = parseFloat(storedVal);
+  const result = operate(a, b, operator);
+  clearDisplay();
+  updateDisplay(result);
+  initialize();
 });
-
-
-
-initialize();
 
 //allBtns.addEventListener('mousedown', (event) => event.target.style.backgroundColor = 'red');
