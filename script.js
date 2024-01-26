@@ -14,6 +14,8 @@ const subtractBtn = document.querySelector('#subtract');
 const multiplyBtn = document.querySelector('#multiply');
 const divideBtn = document.querySelector('#divided');
 
+display.textContent = '';
+
 function add(a, b) {
   return a + b;
 };
@@ -60,9 +62,11 @@ function initialize() {
 }
 
 mainBtns.addEventListener('click', event => {
-  event.target.className === 'number' 
-  ? updateDisplay(event.target.textContent) 
-  : null;
+  if (event.target.className === 'number' && display.textContent === '') {
+    updateDisplay(event.target.textContent);
+  } else if (event.target.className === 'number') {
+    b = parseFloat(event.target.textContent);
+  }
 });
 
 operatorBtns.addEventListener('click', (event) => {
@@ -75,14 +79,16 @@ operatorBtns.addEventListener('click', (event) => {
     a = operate(a, b, operator);
     operator = event.target.textContent;
     clearDisplay();
+    updateDisplay(a);
   }
 });
 
 equalsBtn.addEventListener('click', () => {
-  b = parseFloat(displayVal);
+  //b = parseFloat(displayVal);
   let result = operate(a, b, operator);
   clearDisplay();
   updateDisplay(result);
+  a = displayVal;
 });
 
 clearBtn.addEventListener('click', () => {
