@@ -1,10 +1,10 @@
 let a = '';
 let b = '';
 let operator = '';
-let displayVal = '';
+let storedVal = '';
 
 const allBtns = document.querySelector('#all-btns');
-const mainBtns = document.querySelector('#main-btns');
+const numBtns = document.querySelector('#num-btns');
 const display = document.querySelector('#display');
 const clearBtn = document.querySelector('#clear-btn');
 const equalsBtn = document.querySelector('#equals-btn');
@@ -13,8 +13,6 @@ const addBtn = document.querySelector('#add');
 const subtractBtn = document.querySelector('#subtract');
 const multiplyBtn = document.querySelector('#multiply');
 const divideBtn = document.querySelector('#divided');
-
-display.textContent = '';
 
 function add(a, b) {
   return a + b;
@@ -47,7 +45,7 @@ function operate(a, b, operator) {
 
 function updateDisplay(value) {
   display.textContent += String(value);
-  displayVal = display.textContent;
+  storedVal = display.textContent;
 };
 
 function clearDisplay() {
@@ -58,42 +56,36 @@ function initialize() {
   a = '';
   b = '';
   operator = '';
-  displayVal = '';
+  storedVal = '';
 }
-
-mainBtns.addEventListener('click', event => {
-  if (event.target.className === 'number' && display.textContent === '') {
-    updateDisplay(event.target.textContent);
-  } else if (event.target.className === 'number') {
-    b = parseFloat(event.target.textContent);
-  }
-});
-
-operatorBtns.addEventListener('click', (event) => {
-  if (a === '') {
-    a = parseFloat(displayVal);
-    operator = event.target.textContent;
-    clearDisplay();
-  } else {
-    b = parseFloat(displayVal);
-    a = operate(a, b, operator);
-    operator = event.target.textContent;
-    clearDisplay();
-    updateDisplay(a);
-  }
-});
-
-equalsBtn.addEventListener('click', () => {
-  //b = parseFloat(displayVal);
-  let result = operate(a, b, operator);
-  clearDisplay();
-  updateDisplay(result);
-  a = displayVal;
-});
 
 clearBtn.addEventListener('click', () => {
   clearDisplay();
   initialize();
 });
+
+mainBtns.addEventListener('click', event => {
+  let num = event.target.textContent;
+  if (numBtns.includes(event.target)) {
+
+  }
+});
+
+operatorBtns.addEventListener('click', (event) => {
+  if (a === '') {
+    a = parseFloat(storedVal);
+    operator = event.target.textContent;
+  } else {
+
+  }
+});
+
+equalsBtn.addEventListener('click', () => {
+  
+});
+
+
+
+initialize();
 
 //allBtns.addEventListener('mousedown', (event) => event.target.style.backgroundColor = 'red');
