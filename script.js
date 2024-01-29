@@ -3,7 +3,24 @@ const container = document.querySelector('#container');
 const addBtn = document.querySelector('#add');
 const subtractBtn = document.querySelector('#subtract');
 const multiplyBtn = document.querySelector('#multiply');
-const divideBtn = document.querySelector('divide');
+const divideBtn = document.querySelector('#divide');
+const equalsBtn = document.querySelector('#equals');
+const clearBtn = document.querySelector('#clear');
+
+let a = '';
+let b = '';
+let storedVal = '';
+let displayVal = '';
+
+function clearDisplay() {
+  display.textContent = '';
+}
+
+function updateDisplay(value) {
+  display.textContent += String(value);
+}
+
+
 
 function add(a, b) {
   return a + b;

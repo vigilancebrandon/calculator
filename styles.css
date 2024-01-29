@@ -20,10 +20,10 @@ div {
   flex-direction: column;
   background-color: rgb(90, 110, 150);
   align-items: center;
-  width: 300px;
+  width: 500px;
   height: 400px;
-  padding: 10px;
   gap: 4px;
+  padding: 10px;
 }
 
 #display {
@@ -37,8 +37,9 @@ div {
   flex-direction: row-reverse;
   flex-wrap: wrap;
   flex-grow: 3;
+  justify-content: center;
 }
 
 #zero {
-  width: 50%
+  width: 50%;
 }
