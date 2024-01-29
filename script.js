@@ -35,11 +35,13 @@ function clearDisplay() {
 }
 
 function updateDisplay(value) {
-  if (b !== '') {
+  if (b !== '' && value !== '.') {
     clearDisplay();
   }
   display.textContent += String(value);
 }
+
+//currently, cannot add decimal after clicking '=', because trying to click number clears display
 
 function calculate(operatorBtn) {
   storedVal = parseFloat(display.textContent);
@@ -58,11 +60,6 @@ function calculate(operatorBtn) {
     updateDisplay(a);
     operator = operatorBtn;
   }
-}
-
-function transform(operatorBtn) {
-  storedVal = parseFloat(display.textContent);
-  
 }
 
 function equals() {
