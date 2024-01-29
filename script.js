@@ -14,8 +14,19 @@ let result = '';
 let displayVal = '';
 
 container.addEventListener('click', (event) => {
-  if (event.target.className === 'number') {
-    updateDisplay(event.target.textContent);
+  switch (event.target.className) {
+    case 'number':
+      updateDisplay(event.target.textContent);
+      break;
+    case 'operator':
+      calculate(event.target.textContent);
+      break;
+    case 'equals':
+      equals();
+      break;
+    case 'clear':
+      clearAll();
+      break;
   }
 })
 
@@ -24,6 +35,9 @@ function clearDisplay() {
 }
 
 function updateDisplay(value) {
+  if (b !== '') {
+    clearDisplay();
+  }
   display.textContent += String(value);
 }
 
@@ -44,7 +58,7 @@ function calculate(operatorBtn) {
 }
 
 function equals() {
-  b = display.textContent;
+  b = parseFloat(display.textContent);
   result = operate(a, b, operator);
   clearDisplay();
   updateDisplay(result);
@@ -52,7 +66,7 @@ function equals() {
   operator = '=';
 }
 
-function initialize() {
+function clearAll() {
   clearDisplay();
   a = '';
   b = '';
