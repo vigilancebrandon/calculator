@@ -13,6 +13,12 @@ let storedVal = '';
 let result = '';
 let displayVal = '';
 
+container.addEventListener('click', (event) => {
+  if (event.target.className === 'number') {
+    updateDisplay(event.target.textContent);
+  }
+})
+
 function clearDisplay() {
   display.textContent = '';
 }
@@ -25,10 +31,10 @@ function calculate(operatorBtn) {
   storedVal = display.textContent;
   clearDisplay();
   if (a === '') {
-    a = storedVal;
+    a = parseFloat(storedVal);
     operator = operatorBtn;
   } else if (a !== '') {
-    b = storedVal;
+    b = parseFloat(storedVal);
     result = operate(a, b, operator);
     clearDisplay();
     updateDisplay(result);
