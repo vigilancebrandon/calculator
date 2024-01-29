@@ -49,20 +49,18 @@ function calculate(operatorBtn) {
     operator = operatorBtn;
   } else if (a !== '') {
     b = parseFloat(storedVal);
-    result = operate(a, b, operator);
+    a = operate(a, b, operator);
     clearDisplay();
-    updateDisplay(result);
+    updateDisplay(a);
     operator = operatorBtn;
-    a = result;
   }
 }
 
 function equals() {
   b = parseFloat(display.textContent);
-  result = operate(a, b, operator);
+  a = operate(a, b, operator);
   clearDisplay();
-  updateDisplay(result);
-  a = result;
+  updateDisplay(a);
   operator = '=';
 }
 
