@@ -9,8 +9,8 @@ const clearBtn = document.querySelector('#clear');
 
 let a = '';
 let b = '';
+let operator = '';
 let storedVal = '';
-let result = '';
 let displayVal = '';
 
 container.addEventListener('click', (event) => {
@@ -42,18 +42,27 @@ function updateDisplay(value) {
 }
 
 function calculate(operatorBtn) {
-  storedVal = display.textContent;
+  storedVal = parseFloat(display.textContent);
   clearDisplay();
-  if (a === '') {
-    a = parseFloat(storedVal);
+  if (operatorBtn === '%') {
+      updateDisplay(storedVal / 100);
+  } else if (operatorBtn === '+/-') {
+      updateDisplay(storedVal * -1);
+  } else if (a === '') {
+    a = storedVal;
     operator = operatorBtn;
   } else if (a !== '') {
-    b = parseFloat(storedVal);
+    b = storedVal;
     a = operate(a, b, operator);
     clearDisplay();
     updateDisplay(a);
     operator = operatorBtn;
   }
+}
+
+function transform(operatorBtn) {
+  storedVal = parseFloat(display.textContent);
+  
 }
 
 function equals() {
@@ -68,7 +77,6 @@ function clearAll() {
   clearDisplay();
   a = '';
   b = '';
-  result = '';
   operator = '';
 }
 
