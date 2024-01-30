@@ -52,22 +52,22 @@ function setDecimalBtn() {
 }
 //currently, cannot add decimal after clicking '=', because trying to click number clears display
 
-function calculate(operatorBtn) {
+function calculate(btn) {
   storedVal = parseFloat(display.textContent);
   clearDisplay();
-  if (operatorBtn === '%') {
+  if (btn === '%') {
       updateDisplay(storedVal / 100);
-  } else if (operatorBtn === '+/-') {
+  } else if (btn === '+/-') {
       updateDisplay(storedVal * -1);
   } else if (a === '') {
     a = storedVal;
-    operator = operatorBtn;
+    operator = btn;
   } else if (a !== '') {
     b = storedVal;
     a = operate(a, b, operator);
     clearDisplay();
     updateDisplay(a);
-    operator = operatorBtn;
+    operator = btn;
   }
 }
 
