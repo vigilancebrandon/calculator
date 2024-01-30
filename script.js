@@ -22,13 +22,6 @@ container.addEventListener('click', (event) => {
     case 'operator':
       calculate(event.target.textContent);
       break;
-    case 'decimal':
-      if (display.textContent.includes('.')) {
-        break;
-      } else {
-        updateDisplay('.');
-      };
-      break;
     case 'equals':
       equals();
       break;
@@ -47,6 +40,11 @@ function updateDisplay(value) {
     clearDisplay();
   };
   display.textContent += String(value);
+  if (display.textContent.includes('.')) {
+    decimalBtn.disabled = true;
+  } else {
+    decimalBtn.disabled = false;
+  }
 }
 
 function disableDecimal(bool) {
