@@ -6,6 +6,7 @@ const multiplyBtn = document.querySelector('#multiply');
 const divideBtn = document.querySelector('#divide');
 const equalsBtn = document.querySelector('#equals');
 const clearBtn = document.querySelector('#clear');
+const decimalBtn = document.querySelector('#decimal')
 
 let a = '';
 let b = '';
@@ -21,6 +22,13 @@ container.addEventListener('click', (event) => {
     case 'operator':
       calculate(event.target.textContent);
       break;
+    case 'decimal':
+      if (display.textContent.includes('.')) {
+        break;
+      } else {
+        updateDisplay('.');
+      };
+      break;
     case 'equals':
       equals();
       break;
@@ -35,12 +43,15 @@ function clearDisplay() {
 }
 
 function updateDisplay(value) {
-  if (b !== '' && value !== '.') {
+  if (b !== '') {
     clearDisplay();
-  }
+  };
   display.textContent += String(value);
 }
 
+function disableDecimal(bool) {
+  decimalBtn.disabled === bool;
+}
 //currently, cannot add decimal after clicking '=', because trying to click number clears display
 
 function calculate(operatorBtn) {
