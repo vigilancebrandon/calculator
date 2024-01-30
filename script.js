@@ -40,15 +40,15 @@ function updateDisplay(value) {
     clearDisplay();
   };
   display.textContent += String(value);
+  setDecimalBtn();
+}
+
+function setDecimalBtn() {
   if (display.textContent.includes('.')) {
     decimalBtn.disabled = true;
   } else {
     decimalBtn.disabled = false;
   }
-}
-
-function disableDecimal(bool) {
-  decimalBtn.disabled === bool;
 }
 //currently, cannot add decimal after clicking '=', because trying to click number clears display
 
@@ -92,15 +92,15 @@ function add(a, b) {
 
 function subtract(a, b) {
   return a - b;
-};
+}
 
 function multiply(a, b) {
   return a * b;
-};
+}
 
 function divide(a, b) {
   return a / b;
-};
+}
 
 function operate(a, b, operator) {
   switch (operator) {
@@ -115,4 +115,4 @@ function operate(a, b, operator) {
     case '=':
       return a;
   }
-};
+}
