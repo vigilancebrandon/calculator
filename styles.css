@@ -17,8 +17,8 @@ body {
 button {
   flex: 1 0 21%;
   margin: 2px;
-  border: none;
   border-radius: 6px;
+  border: none;
   font-size: 3em;
 }
 
@@ -74,10 +74,10 @@ div {
   background-color: aqua;
 }
 
-#equals {
-  background-color: white;
-}
-
 #zero {
   flex: 1 0 46%;
+}
+
+button:active {
+  background-color: goldenrod;
 }
