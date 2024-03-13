@@ -1,5 +1,5 @@
 const display = document.querySelector('#display');
-const container = document.querySelector('#container');
+const calculator = document.querySelector('#calculator');
 const addBtn = document.querySelector('#add');
 const subtractBtn = document.querySelector('#subtract');
 const multiplyBtn = document.querySelector('#multiply');
@@ -14,7 +14,7 @@ let operator = '';
 let storedVal = '';
 let displayVal = '';
 
-container.addEventListener('click', (event) => {
+calculator.addEventListener('click', (event) => {
   switch (event.target.className) {
     case 'number':
       updateDisplay(event.target.textContent);
