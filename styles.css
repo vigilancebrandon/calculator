@@ -4,12 +4,16 @@ body {
 }
 
 button {
-  font-family: 'CodeNewRomanRegular', Verdana, Geneva, Tahoma, sans-serif;
-  flex: 1 0 21%;
   margin: 2px;
   border-radius: 6px;
-  border: none;
+  /* border: 3px solid yellow; */
+
+  font-family: 'CodeNewRomanRegular', Verdana, Geneva, Tahoma, sans-serif;
   font-size: 3em;
+}
+
+button:active {
+  background-color: rgba(247 195 62 / 0.8);
 }
 
 div {
@@ -67,8 +71,8 @@ div {
   background-color: dimgrey;
 
   box-sizing: content-box;
-  height: 1em;
-  margin-bottom: 5%;
+  height: 1.5em;
+  margin-bottom: 0.5em;
   border-radius: 6px;
 
   font-family: 'Segment7Standard', Verdana, Geneva, Tahoma, sans-serif;
@@ -126,8 +130,4 @@ div {
 #decimal {
   grid-row: 6;
   grid-column: 3;
-}
-
-button:active {
-  background-color: rgba(247 195 62 / 0.8);
 }
