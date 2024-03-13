@@ -13,7 +13,7 @@ button {
 }
 
 div {
-  display: flex;
+  /* display: flex; */
 }
 
 #calculator {
@@ -52,9 +52,6 @@ div {
 }
 
 #display {
-  grid-area: 1 / 1 / 2 / -1;
-  
-  
   /* width: 0; */
 
   /* flex: 1;
@@ -64,6 +61,7 @@ div {
   justify-content: right;
   align-items: center;
   align-self: flex-start; */
+  grid-area: 1 / 1 / 2 / -1;
 
   background-color: dimgrey;
 
@@ -87,10 +85,43 @@ div {
 #percent,
 #change-sign {
   background-color: aqua;
+  grid-row: 2;
+}
+
+#change-sign {
+  grid-column: 2;
+}
+
+#percent {
+  grid-column: 3;
+}
+
+#nine,
+#eight,
+#seven {
+  grid-row: 3;
+}
+
+#six,
+#five,
+#four {
+  grid-row: 4;
+}
+
+#three,
+#two,
+#one {
+  grid-row: 5;
 }
 
 #zero {
-  flex: 1 0 46%;
+  grid-row: 6;
+  grid-column-end: span 2;
+}
+
+#decimal {
+  grid-row: 6;
+  grid-column: 3;
 }
 
 button:active {
